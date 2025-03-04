@@ -1,12 +1,14 @@
-"use client";
+"use client"; // Ensure this is a Client Component
+
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getCookie } from "cookies-next";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const PreviewPage = ({ chatId }) => {
+function PreviewPageContent({ chatId }) {
   const messagesEndRef = useRef(null);
   const searchParams = useSearchParams();
   const [botPic, setBotPic] = useState();
@@ -181,7 +183,6 @@ const PreviewPage = ({ chatId }) => {
     }
   };
 
-
   useEffect(() => {
     if (chatHistory.length > 0) {
       const currentChat = chatHistory.find((chat) => chat._id === selectedChat);
@@ -326,6 +327,12 @@ const PreviewPage = ({ chatId }) => {
       </footer>
     </div>
   );
-};
+}
 
-export default PreviewPage;
+export default function PreviewPage({ chatId }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PreviewPageContent chatId={chatId} />
+    </Suspense>
+  );
+}
