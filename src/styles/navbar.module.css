@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.navbar {
+  display: flex;
+  height: 80px;
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%;
+  background-color: transparent;
+  align-items: center;
+  color: #444444;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  z-index: 1000;
+}
+nav.scrolled {
+  background: rgb(255, 255, 255);
+}
+
+.logoo {
+  position: relative;
+  right: 50px;
+  cursor: pointer;
+}
+
+.btnLogin {
+  padding: 10px;
+  width: max-content;
+  color: white;
+  background-color: #0071ba;
+  border: none;
+  font-size: 14px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.btnSignup {
+  padding: 8px 15px;
+  width: 82px;
+  color: #444444;
+  background-color: transparent;
+  border: 1.5px solid #444444;
+  font-size: 14px;
+  border-radius: 5px;
+  position: relative;
+  right: 10px;
+  cursor: pointer;
+}
+
+.navLogo {
+  color: #fff;
+  font-size: 40px;
+  display: none;
+  font-weight: 600;
+}
+
+.navItems {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+}
+.menuOpen {
+  background-color: rgb(255, 255, 255);
+  transition: 0.6s ease;
+}
+.navItems li {
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  color: #444444;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+.menuBtn i {
+  color: #000000;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+.navCheckbox {
+  display: none;
+}
+
+.home {
+  text-decoration: underline;
+}
+
+.btnMain {
+  display: flex;
+  gap: 30px;
+}
+
+.show {
+  display: none;
+}
+
+@media (min-width: 1150px) {
+  .active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #444444;
+    transition: width 0.5s ease;
+  }
+
+  .active:hover::before,
+  .active::before {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .navbar {
+    padding: 0 40px 0 50px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: inline;
+  }
+
+  .menuBtn i {
+    top: 27px;
+    position: absolute;
+    right: 6%;
+    display: block;
+  }
+
+  .logoo {
+    position: relative;
+    right: 0;
+    width: 10% !important;
+  }
+
+  .navCheckbox:checked ~ .menuBtn i:before {
+    content: "\f00d";
+  }
+
+  .navbar {
+    padding: 17px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .navItems {
+    position: absolute;
+    top: 69px;
+    left: -100%;
+    background: rgb(255, 255, 255);
+    color: #444444;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .navCheckbox:checked ~ .navItems {
+    left: 0;
+  }
+
+  .navItems li {
+    width: 100%;
+    margin: 22px 0;
+    margin-left: -100%;
+    font-size: 20px;
+    color: #444444;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .navCheckbox:checked ~ .navItems .navItem {
+    margin-left: 0px;
+  }
+
+  .navLogo {
+    display: block;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo {
+    display: inline-block;
+  }
+  .btnSignup {
+    right: 0;
+  }
+}

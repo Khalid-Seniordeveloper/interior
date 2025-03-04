@@ -1,0 +1,124 @@
+.tableContainer {
+  width: 100%;
+  max-width: 100%;
+  background-color: #fbfcfd;
+}
+
+.btnFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  .btnFlex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+:disabled.createBotBtn:hover {
+  background-color: #afbff0;
+}
+:disabled.createBotBtn {
+  background-color: #afbff0;
+}
+.createBotBtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  width: max-content;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.createBotBtn:hover {
+  background-color: #0056b3;
+  transform: scale(1);
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  color: #454545;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 600px;
+}
+
+.tableHeaderRow {
+  background-color: #f8f9fa;
+}
+
+.tableHeaderCell {
+  padding: 12px;
+  text-align: left;
+  margin-top: 2px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tableRow {
+  background-color: #ffffff;
+  transition: 0.3s ease-in-out;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.tableRow:hover {
+  background-color: #e6e6e6;
+  transform: scale(1);
+}
+
+.tableCell {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    padding: 10px;
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+  }
+  .tableHeaderCell {
+    font-size: 14px;
+  }
+  .tableCell {
+    padding: 8px;
+  }
+  .createBotBtn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border-radius: 4px;
+  }
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}

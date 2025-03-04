@@ -1,0 +1,135 @@
+.mainsec {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+
+  margin: 0 auto;
+}
+
+.navbar {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  white-space: nowrap;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.close {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.line {
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  border-radius: 30px;
+}
+
+.line.one {
+  transform: rotate(45deg);
+}
+
+.line.two {
+  transform: rotate(135deg);
+}
+
+.messagesarea {
+  flex: 1;
+  overflow-y: auto;
+  background-color: white;
+  padding: 15px;
+}
+
+.senderarea {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #2e2f3a;
+}
+
+.inputplace {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2e2f3a;
+  gap: 5px;
+}
+
+.sendinput {
+  flex: 1;
+  outline: none;
+  border: none;
+  background: none;
+  color: black;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sendinput::placeholder {
+  color: #828e9e;
+}
+
+.send {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sendicon {
+  width: 17px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    border-radius: 0;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .sendinput {
+    font-size: 14px;
+  }
+
+  .send {
+    width: 25px;
+    height: 25px;
+  }
+}

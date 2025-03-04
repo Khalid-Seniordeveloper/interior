@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.box {
+  width: 80%;
+  border-radius: 8px;
+  display: flex;
+  padding: 20px 15px;
+  margin: 5px;
+  text-align: center;
+  border: 2px solid #bcbcbc80;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.box img {
+  margin: 20px;
+}
+
+.button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.button:disabled,
+.disabled {
+  color: #000000;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: not-allowed;
+}
+
+@media (max-width: 580px) {
+  .heading {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: rgb(0, 0, 0);
+  }
+
+  .box {
+    width: 90%;
+  }
+}
