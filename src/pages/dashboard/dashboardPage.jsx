@@ -61,7 +61,7 @@ const Dashboard = () => {
     if (!userId) return;
     try {
       const response = await axios.post(
-        "https://chatbuilder-puce.vercel.app/api/chatbot/getchathistory",
+        "https://chatbuilder-puce.vercel.app//api/chatbot/getchathistory",
         { id: userId }
       );
       setBotData(response.data);
@@ -119,7 +119,7 @@ const Dashboard = () => {
   const deleteChatbot = async (botId) => {
     try {
       const response = await axios.delete(
-        "https://chatbuilder-puce.vercel.app/api/chatbot/delete",
+        "https://chatbuilder-puce.vercel.app//api/chatbot/delete",
         { data: { chatbotId: botId } }
       );
       setAlertMessage(`Chat bot deleted.`);
@@ -185,7 +185,7 @@ const Dashboard = () => {
   const handleStatusToggle = async (chatBotId) => {
     try {
       const response = await axios.post(
-        "https://chatbuilder-puce.vercel.app/api/chatbot/toggleChatbotStatus",
+        "https://chatbuilder-puce.vercel.app//api/chatbot/toggleChatbotStatus",
         {
           chatBotId,
         }
@@ -234,7 +234,7 @@ const Dashboard = () => {
 
     try {
       const response = await axios.put(
-        ` https://chatbuilder-puce.vercel.app/api/chatbot/edit/${botId}`,
+        ` https://chatbuilder-puce.vercel.app//api/chatbot/edit/${botId}`,
         {
           name: editName || currentName,
           tagline: editTagline || currentTagline,

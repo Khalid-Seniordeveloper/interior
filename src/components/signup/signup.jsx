@@ -57,35 +57,44 @@ const SignupPage = () => {
     }
   };
 
-  const googleAuth = async (e) => {
-    e.preventDefault();
+  // const googleAuth = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      setLoading(true);
+  //   try {
+  //     setLoading(true);
 
-      const res = await axios.get("https://chatbuilder-puce.vercel.app/auth/login/success", {
-        withCredentials: true,
-      });
+  //     const res = await axios.get("https://chatbuilder-puce.vercel.app//auth/login/success", {
+  //       withCredentials: true,
+  //     });
 
-      if (res.data?.user) {
-        setCookie("Googletoken", res?.data?.accessToken);
-        setLoading(false);
-        router.replace("/dashboard");
-      }
-    } catch (error) {
-      setLoading(false);
-      setAlertMessage(
-        error?.response?.data?.message || "Something went wrong."
-      );
-      setAlertSeverity("error");
-      setShowMessage(true);
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 3000);
-    } finally {
-      setLoading(false);
-    }
+  //     if (res.data?.user) {
+  //       setCookie("Googletoken", res?.data?.accessToken);
+  //       setLoading(false);
+  //       router.replace("/dashboard");
+  //     }
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setAlertMessage(
+  //       error?.response?.data?.message || "Something went wrong."
+  //     );
+  //     setAlertSeverity("error");
+  //     setShowMessage(true);
+  //     setTimeout(() => {
+  //       setShowMessage(false);
+  //     }, 3000);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+
+  const googleAuth = () => {
+    // Set a flag to indicate Google authentication
+    localStorage.setItem("isGoogleAuth", "true");
+    window.location.href = "https://chatbuilder-puce.vercel.app//auth/google";
   };
+
+
 
   return (
     <>

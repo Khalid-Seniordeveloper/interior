@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import logo from "../../public/images/logo.svg";
 import { useEffect, useRef, useState } from "react";
 import { deleteCookie, getCookie } from "cookies-next";
+import axios from "axios";
 
 const Sidebar = () => {
   const [alertSeverity, setAlertSeverity] = useState("success");
@@ -23,6 +24,43 @@ const Sidebar = () => {
       setUserData(JSON.parse(cookieData));
     }
   }, []);
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        // Check if user data is already in local storage
+        const userDataLocalStorage = localStorage.getItem("userData");
+        if (userDataLocalStorage) {
+          const userData = JSON.parse(userDataLocalStorage);
+          setUserData(userData);
+          return;
+        }
+  
+        // Check if the user authenticated via Google
+        const isGoogleAuth = localStorage.getItem("isGoogleAuth");
+        if (isGoogleAuth) {
+          //this api get a usr data in backend
+          const response = await axios.get("https://chatbuilder-puce.vercel.app//auth/login/success", {
+            withCredentials: true,
+          });
+  
+          if (response.data.success) {
+            const userData = response.data.user;
+            setUserData(userData);
+            localStorage.setItem("userData", JSON.stringify(userData));
+            console.log("User from API:", userData);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        // Clear the Google authentication flag
+        //auto-fetch na ho jab tak user wapas login na kare.
+        localStorage.removeItem("isGoogleAuth");
+      }
+    };
+  
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -38,10 +76,17 @@ const Sidebar = () => {
   }, []);
 
   const logout = () => {
+    localStorage.removeItem("userData");
+
     deleteCookie("token");
     deleteCookie("userData");
     deleteCookie("botDetail");
+    deleteCookie("refreshToken");
+    deleteCookie("accessToken");
     setAlertSeverity("success");
+
+
+    
     setShowMessage(true);
     router.replace("/");
     setAlertMessage("Logged out successfully.");

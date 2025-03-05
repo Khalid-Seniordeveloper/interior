@@ -196,7 +196,7 @@ const ChatbotModal = ({ isOpen, onClose, modalLoading, fetchChatBots }) => {
         formData.webURL = webURL;
 
         response = await axios.post(
-          "https://chatbuilder-puce.vercel.app/api/chatbot/create",
+          "https://chatbuilder-puce.vercel.app//api/chatbot/create",
           formData,
           {
             headers: {
@@ -208,7 +208,7 @@ const ChatbotModal = ({ isOpen, onClose, modalLoading, fetchChatBots }) => {
         formData.file = file;
 
         response = await axios.post(
-          "https://chatbuilder-puce.vercel.app/api/chatbot/pdfScrape",
+          "https://chatbuilder-puce.vercel.app//api/chatbot/pdfScrape",
           formData,
           {
             headers: {

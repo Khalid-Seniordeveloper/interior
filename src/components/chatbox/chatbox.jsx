@@ -43,7 +43,7 @@ const ChatbotHistory = () => {
       if (!selectedChat) return;
       try {
         const response = await axios.get(
-          `https://chatbuilder-puce.vercel.app/api/chatbot/getmessages/${selectedChat}`
+          `https://chatbuilder-puce.vercel.app//api/chatbot/getmessages/${selectedChat}`
         );
         setChatMessages((prev) => ({
           ...prev,
@@ -59,7 +59,7 @@ const ChatbotHistory = () => {
   const fetchChatHistory = async () => {
     try {
       const response = await axios.post(
-        "https://chatbuilder-puce.vercel.app/api/chatbot/getchathistory",
+        "https://chatbuilder-puce.vercel.app//api/chatbot/getchathistory",
         { id: userId }
       );
       setChatHistory(response.data.data);

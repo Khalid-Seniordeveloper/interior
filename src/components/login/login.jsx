@@ -29,6 +29,7 @@ const LoginPage = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(`${baseUrl}${loginUrl}`, loginData);
+      localStorage.setItem("userData",JSON.stringify(data.result))
       setCookie("token", data.result.token);
       setCookie("userData", JSON.stringify(data.result));
       router.replace("/dashboard");
@@ -53,7 +54,7 @@ const LoginPage = () => {
     try {
       setLoading(true);
 
-      const res = await axios.get("https://chatbuilder-puce.vercel.app/auth/login/success", {
+      const res = await axios.get("https://chatbuilder-puce.vercel.app//auth/login/success", {
         withCredentials: true,
       });
 

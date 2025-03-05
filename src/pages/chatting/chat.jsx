@@ -26,7 +26,7 @@ const CurrentChatbox = ({ chatId, chatbot }) => {
     if (!selectedChat) return;
     try {
       const response = await axios.get(
-        `https://chatbuilder-puce.vercel.app/api/chatbot/getmessages/${selectedChat}`
+        `https://chatbuilder-puce.vercel.app//api/chatbot/getmessages/${selectedChat}`
       );
       const fetchedMessages = response.data.data || [];
       console.log(fetchedMessages);
@@ -122,7 +122,7 @@ const CurrentChatbox = ({ chatId, chatbot }) => {
       setIsTyping(true);
 
       const response = await fetch(
-        `https://chatbuilder-puce.vercel.app/api/chatbot/ask?question=${encodeURIComponent(
+        `https://chatbuilder-puce.vercel.app//api/chatbot/ask?question=${encodeURIComponent(
           message
         )}&chatbotId=${selectedChat}`
       );
@@ -217,7 +217,7 @@ const CurrentChatbox = ({ chatId, chatbot }) => {
   //   if (!selectedChat) return;
   //   try {
   //     const response = await axios.get(
-  //       https://chatbuilder-puce.vercel.app/api/chatbot/getmessages/${selectedChat}
+  //       https://chatbuilder-puce.vercel.app//api/chatbot/getmessages/${selectedChat}
   //     );
   //     const fetchedMessages = response.data.data || [];
   //     setChatMessages((prev) => ({
@@ -231,7 +231,7 @@ const CurrentChatbox = ({ chatId, chatbot }) => {
   const fetchChatHistory = async () => {
     try {
       const response = await axios.post(
-        "https://chatbuilder-puce.vercel.app/api/chatbot/getchathistory",
+        "https://chatbuilder-puce.vercel.app//api/chatbot/getchathistory",
         { id: userId }
       );
       setChatHistory(response.data.data);
@@ -337,7 +337,7 @@ const CurrentChatbox = ({ chatId, chatbot }) => {
       console.log("MessageId", messageId);
       console.log("Chatbot Id", chatbot._id);
       // Call the backend API to delete the message
-      await axios.delete(`https://chatbuilder-puce.vercel.app/api/chatbot/deletemessage`, {
+      await axios.delete(`https://chatbuilder-puce.vercel.app//api/chatbot/deletemessage`, {
         params: { messageId, chatbotId: chatbot._id },
       });
 
