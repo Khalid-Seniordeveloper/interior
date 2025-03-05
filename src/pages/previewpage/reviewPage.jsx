@@ -59,7 +59,7 @@ function PreviewPageContent({ chatId }) {
       const fetchMessages = async () => {
         try {
           const response = await axios.get(
-            `https://chatbuilder-puce.vercel.app//api/chatbot/getmessages/${selectedChat}`
+            `https://chatbuilder-puce.vercel.app/api/chatbot/getmessages/${selectedChat}`
           );
           setChatMessages((prev) => ({
             ...prev,
@@ -106,7 +106,7 @@ function PreviewPageContent({ chatId }) {
     try {
       setIsTyping(true);
       const response = await fetch(
-        `https://chatbuilder-puce.vercel.app//api/chatbot/ask?question=${encodeURIComponent(
+        `https://chatbuilder-puce.vercel.app/api/chatbot/ask?question=${encodeURIComponent(
           message
         )}&chatbotId=${selectedChat}`
       );
@@ -171,7 +171,7 @@ function PreviewPageContent({ chatId }) {
   const fetchChatHistory = async () => {
     try {
       const response = await axios.post(
-        "https://chatbuilder-puce.vercel.app//api/chatbot/getchathistory",
+        "https://chatbuilder-puce.vercel.app/api/chatbot/getchathistory",
         { id: userId }
       );
       setChatHistory(response.data.data);

@@ -39,7 +39,7 @@ const Sidebar = () => {
         const isGoogleAuth = localStorage.getItem("isGoogleAuth");
         if (isGoogleAuth) {
           //this api get a usr data in backend
-          const response = await axios.get("https://chatbuilder-puce.vercel.app//auth/login/success", {
+          const response = await axios.get("https://chatbuilder-puce.vercel.app/auth/login/success", {
             withCredentials: true,
           });
   

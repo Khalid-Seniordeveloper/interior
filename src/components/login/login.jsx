@@ -54,7 +54,7 @@ const LoginPage = () => {
   //   try {
   //     setLoading(true);
 
-  //     const res = await axios.get("https://chatbuilder-puce.vercel.app//auth/login/success", {
+  //     const res = await axios.get("https://chatbuilder-puce.vercel.app/auth/login/success", {
   //       withCredentials: true,
   //     });
 
@@ -83,7 +83,7 @@ const LoginPage = () => {
   const googleAuth = () => {
     // Set a flag to indicate Google authentication
     localStorage.setItem("isGoogleAuth", "true");
-    window.location.href = "https://chatbuilder-puce.vercel.app//auth/google";
+    window.location.href = "https://chatbuilder-puce.vercel.app/auth/google";
   };
 
 

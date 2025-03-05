@@ -12,7 +12,7 @@ export default function Page({ params }) {
   const fetchChatBotData = async () => {
     try {
       const res = await axios.get(
-        `https://chatbuilder-puce.vercel.app//api/chatbot/single/${slug}`
+        `https://chatbuilder-puce.vercel.app/api/chatbot/single/${slug}`
       );
       console.log(res);
       setChatbot(res.data.chatbot);

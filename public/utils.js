@@ -130,7 +130,7 @@ const getScriptTag = () => {
 
 //* Function to get chatbot's image url
 const getChatbotData = async (chatbotConfig) => {
-  const url = `https://chatbuilder-puce.vercel.app//api/chatbot/single/${chatbotConfig.id}`;
+  const url = `https://chatbuilder-puce.vercel.app/api/chatbot/single/${chatbotConfig.id}`;
 
   try {
     let res = await fetch(url);
@@ -233,7 +233,7 @@ const sendMessage = async (container, input, chatbotConfig) => {
     saveMsgToStorage(id, question);
 
     //* Construct the url for API's response
-    const url = `https://chatbuilder-puce.vercel.app//api/chatbot/ask?question=${encodeURIComponent(
+    const url = `https://chatbuilder-puce.vercel.app/api/chatbot/ask?question=${encodeURIComponent(
       question.message
     )}&chatbotId=${id}`;
 
