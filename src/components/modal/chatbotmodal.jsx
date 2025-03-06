@@ -202,7 +202,6 @@ const ChatbotModal = ({ isOpen, onClose, modalLoading, fetchChatBots }) => {
             headers: {
               "Content-Type": "application/json",
             },
-          withCredentials: true,
 
           },
         );
